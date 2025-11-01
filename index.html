@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cumming Community Resources Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+         :root {
+            --primary: #00d9ff;
+            --secondary: #0099ff;
+            --accent: #00ffaa;
+            --dark: #0a0a0a;
+            --darker: #050505;
+            --light: #1a1a2e;
+            --lighter: #16213e;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 50%, var(--darker) 100%);
+            background-attachment: fixed;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--light) 0%, var(--lighter) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+            position: relative;
+            z-index: 1;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+            }
+            to {
+                text-shadow: 0 0 25px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 217, 255, 0.5);
+            }
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            color: var(--primary);
+            position: relative;
+            z-index: 1;
+        }
+        
+        nav {
+            background: var(--dark);
+            padding: 0;
+            border-bottom: 3px solid var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 217, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav li {
+            margin: 0;
+        }
+        
+        nav a {
+            display: block;
+            color: var(--primary);
+            padding: 1.2rem 2rem;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            transform: translateX(-50%);
+            transition: width 0.4s ease;
+        }
+        
+        nav a:hover {
+            color: #00ffff;
+            background: rgba(26, 26, 46, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        nav a:hover::before {
+            width: 80%;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            border-bottom: 4px solid var(--primary);
+            padding-bottom: 0.8rem;
+            text-shadow: 0 0 15px rgba(0, 217, 255, 0.6);
+            display: inline-block;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, var(--light) 0%, var(--lighter) 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border: 2px solid var(--primary);
+            box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .intro::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 170, 0.05) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .intro p {
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, var(--lighter) 0%, var(--light) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3);
+            border: 2px solid var(--primary);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 217, 255, 0.1) 0%, transparent 60%);
+            transform: scale(0);
+            transition: transform 0.6s ease;
+        }
+        
+        .stat-box:hover::before {
+            transform: scale(1);
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 12px 48px rgba(0, 255, 255, 0.5);
+            border-color: var(--accent);
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            color: var(--accent);
+            font-weight: bold;
+            text-shadow: 0 0 25px rgba(0, 255, 170, 0.8);
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .search-section {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--light) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3);
+            margin-bottom: 2rem;
+            border: 2px solid var(--primary);
+        }
+        
+        .search-box {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3.5rem;
+            font-size: 1.1rem;
+            border: 3px solid var(--primary);
+            border-radius: 10px;
+            background: var(--darker);
+            color: var(--primary);
+            transition: all 0.4s ease;
+        }
+        
+        .search-box::before {
+            content: '🔍';
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            z-index: 1;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            box-shadow: 0 0 25px rgba(0, 217, 255, 0.6);
+            border-color: var(--accent);
+            transform: scale(1.02);
+        }
+        
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .filter-item label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .filter-item select {
+            width: 100%;
+            padding: 0.9rem;
+            border: 3px solid var(--primary);
+            border-radius: 10px;
+            font-size: 1rem;
+            background: var(--darker);
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+        
+        .filter-item select:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+            border-color: var(--accent);
+        }
+        
+        .resources {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .resource-card {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--lighter) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3);
+            border-left: 5px solid var(--primary);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, transparent 100%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .resource-card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 16px 48px rgba(0, 255, 255, 0.5);
+            border-left-width: 10px;
+            border-color: var(--accent);
+        }
+        
+        .resource-card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .category-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 217, 255, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .type-badge {
+            display: inline-block;
+            background: rgba(0, 255, 170, 0.2);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin-left: 0.5rem;
+            border: 1px solid var(--accent);
+        }
+        
+        .resource-info {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #b0b0b0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .resource-info p {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .resource-info p::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .highlight-card {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--light) 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 48px rgba(0, 217, 255, 0.4);
+            border: 3px solid var(--primary);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 60px rgba(0, 255, 255, 0.6);
+            border-color: var(--accent);
+        }
+        
+        .highlight-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            padding: 3rem;
+            text-align: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            animation: sparkle 4s linear infinite;
+        }
+        
+        @keyframes sparkle {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            100% {
+                transform: translate(50%, 50%) rotate(360deg);
+            }
+        }
+        
+        .highlight-body {
+            padding: 2rem;
+        }
+        
+        .highlight-body h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .highlight-body p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        
+        .featured-badge {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: var(--darker);
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 20px rgba(0, 255, 170, 0.5);
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-badge {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        .form-container {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--light) 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 12px 48px rgba(0, 217, 255, 0.4);
+            max-width: 800px;
+            margin: 0 auto;
+            border: 3px solid var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 3px solid var(--primary);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--darker);
+            color: var(--primary);
+            transition: all 0.4s ease;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 25px rgba(0, 217, 255, 0.6);
+            border-color: var(--accent);
+            transform: scale(1.02);
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 6px 25px rgba(0, 217, 255, 0.4);
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.6);
+        }
+        
+        .success-msg {
+            background: linear-gradient(135deg, #0f5132, #198754);
+            color: var(--accent);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            display: none;
+            border: 3px solid var(--accent);
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #888;
+            font-size: 1.3rem;
+        }
+        
+        footer {
+            background: var(--darker);
+            color: #b0b0b0;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            border-top: 3px solid var(--primary);
+            box-shadow: 0 -4px 20px rgba(0, 217, 255, 0.2);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .footer-section p {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-section a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #333;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav a {
+                text-align: center;
+                padding: 1rem;
+            }
+            .resources,
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>🏘️ Cumming Community Resources Hub</h1>
+        <p>Your Gateway to Local Services & Support Programs</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">🏠 Home</a></li>
+            <li><a href="#directory">📋 Resource Directory</a></li>
+            <li><a href="#featured">⭐ Featured Resources</a></li>
+            <li><a href="#submit">📝 Submit a Resource</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="home">
+            <div class="intro">
+                <h2>Welcome to Your Community Resource Hub!</h2>
+                <p>This comprehensive platform connects Cumming, Georgia residents with essential community resources. Whether you need healthcare services, food assistance, educational programs, youth activities, or senior services, we've made it easy to
+                    find exactly what you need.</p>
+                <p>Our interactive directory features powerful search and filtering capabilities to help you quickly locate the perfect resource for your situation. Start exploring below!</p>
+            </div>
+
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">24+</div>
+                    <div class="stat-label">Community Resources</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Service Categories</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Families Helped</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="directory">
+            <h2>📋 Interactive Resource Directory</h2>
+
+            <div class="search-section">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search for resources, services, or keywords...">
+                </div>
+
+                <div class="filters">
+                    <div class="filter-item">
+                        <label>🏷️ Category:</label>
+                        <select id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="Health & Wellness">Health & Wellness</option>
+                            <option value="Education">Education</option>
+                            <option value="Social Services">Social Services</option>
+                            <option value="Youth Programs">Youth Programs</option>
+                            <option value="Senior Services">Senior Services</option>
+                            <option value="Food Assistance">Food Assistance</option>
+                            <option value="Recreation">Recreation</option>
+                            <option value="Community Events">Community Events</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-item">
+                        <label>🔖 Type:</label>
+                        <select id="typeFilter">
+                            <option value="">All Types</option>
+                            <option value="Non-Profit">Non-Profit</option>
+                            <option value="Government">Government</option>
+                            <option value="Community Group">Community Group</option>
+                            <option value="Support Service">Support Service</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div id="resourcesContainer" class="resources"></div>
+            <div id="noResults" class="no-results" style="display: none;">
+                🔍 No resources found. Try adjusting your search or filters.
+            </div>
+        </section>
+
+        <section id="featured">
+            <h2>⭐ Featured Resources</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.15rem;">Discover these exceptional organizations making a profound impact in our community!</p>
+
+            <div class="highlights">
+                <div class="highlight-card">
+                    <div class="highlight-header">🏥</div>
+                    <div class="highlight-body">
+                        <h3>Forsyth County Health Department</h3>
+                        <p>The health department provides comprehensive services including immunizations, health screenings, and maternal health programs. They serve thousands of residents annually with affordable, quality care for those who need it most.</p>
+                        <p><strong>Services:</strong> Immunizations, Health Screenings, Maternal Health, Disease Prevention</p>
+                        <p><strong>📞 Phone:</strong> (770) 781-6800</p>
+                        <p><strong>📍 Address:</strong> 1670 Buford Hwy, Cumming, GA 30041</p>
+                        <p><strong>🕒 Hours:</strong> Monday-Friday 8 AM - 5 PM</p>
+                        <span class="featured-badge">⭐ Top Community Resource</span>
+                    </div>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-header">🍎</div>
+                    <div class="highlight-body">
+                        <h3>North Georgia Food Bank</h3>
+                        <p>Fighting hunger throughout our region by distributing millions of pounds of food annually to families in need. They also provide vital nutrition education programs to promote healthy living.</p>
+                        <p><strong>Services:</strong> Food Distribution, Emergency Food Assistance, Nutrition Education Classes</p>
+                        <p><strong>📞 Phone:</strong> (770) 887-1390</p>
+                        <p><strong>📍 Address:</strong> 2812 Old Cornelia Hwy, Gainesville, GA 30507</p>
+                        <p><strong>🕒 Hours:</strong> Monday-Friday 9 AM - 5 PM</p>
+                        <span class="featured-badge">⭐ Top Community Resource</span>
+                    </div>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-header">📚</div>
+                    <div class="highlight-body">
+                        <h3>Cumming Public Library</h3>
+                        <p>More than just books! The library offers cutting-edge programs including STEM activities, book clubs, computer training, job search assistance, and extensive online resources accessible from home.</p>
+                        <p><strong>Programs:</strong> Youth Programs, Adult Education, Technology Training, Study Spaces, Digital Resources</p>
+                        <p><strong>📞 Phone:</strong> (770) 781-9840</p>
+                        <p><strong>📍 Address:</strong> 585 Dahlonega St, Cumming, GA 30040</p>
+                        <p><strong>🕒 Hours:</strong> Mon-Thu 10 AM - 8 PM, Fri-Sat 10 AM - 6 PM</p>
+                        <span class="featured-badge">⭐ Top Community Resource</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="submit">
+            <h2>📝 Submit a New Resource</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.15rem;">Know about an amazing community resource that should be featured? Share it with us using the form below!</p>
+
+            <div class="form-container">
+                <div id="successMessage" class="success-msg">
+                    ✅ Thank you for your submission! We'll review it and add it to our directory soon.
+                </div>
+
+                <form id="resourceForm">
+                    <div class="form-group">
+                        <label>Organization Name: *</label>
+                        <input type="text" name="orgName" required placeholder="Enter the organization name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Category: *</label>
+                        <select name="category" required>
+                            <option value="">Choose a category</option>
+                            <option value="Health & Wellness">Health & Wellness</option>
+                            <option value="Education">Education</option>armers
